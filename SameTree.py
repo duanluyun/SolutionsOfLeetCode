@@ -32,17 +32,4 @@ class Solution:
             return False
         return self.check(p.left,q.left) and self.check(p.right,q.right)
 
-# node1=TreeNode(1)
-# node2=TreeNode(2)
-# node3=TreeNode(3)
-# node1.left=node2
-# node1.right=node3
-#
-# node4=TreeNode(1)
-# node5=TreeNode(2)
-# node6=TreeNode(5)
-# node4.left=node5
-# node4.right=node6
 
-S=Solution()
-print(S.isSameTree(node1,node4))
