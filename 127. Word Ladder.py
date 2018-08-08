@@ -8,22 +8,22 @@ class Solution:
         """
         if endWord not in wordList:
             return 0
-        wordList=set(wordList)
-
-        char=[chr(i) for i in range(ord('a'),ord('z')+1)]
-
-        res=[(beginWord,1)]
-        while res:
-            word,length=res.pop(0)
-            if word==endWord:
-                return length
-            for i in range(len(word)):
-                for c in char:
-                    temp=word[:i]+c+word[i+1:]
+        charList=[chr(i) for i in range(ord('a'),ord('z')+1)]
+        req=[(beginWord,1)]
+        while req:
+            begin,length=req.pop(0)
+            for i in range(len(begin)):
+                for c in charList:
+                    temp=begin[:i]+c+begin[i+1:]
+                    if temp==endWord:
+                        return length+1
                     if temp in wordList:
-                        res.append((temp,length+1))
+                        req.append((temp,length+1))
                         wordList.remove(temp)
-        return 0
+
+
+S=Solution()
+print(S.ladderLength('hit','cog', ["hot","dot","dog","lot","log","cog"]))
 
 
 
